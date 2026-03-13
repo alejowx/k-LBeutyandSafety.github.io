@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tu Carrito | K&amp;L Makeup &amp; Skincare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#dd787b",
+                        "background-light": "#ffefeb",
+                        "background-dark": "#e2bcc5",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 lg:px-20 py-4">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-12">
+<a href="index.html" class="flex items-center">
+  <img src="images/Logo Transparente.png" alt="K&amp;L Maquillaje y Cuidado de la Piel" 
+       class="h-20 w-auto">
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="index.html">INICIO</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="cuidado-piel.html">SKINCARE</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="maquillaje.html">MAQUILLAJE</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="pines.html">PINES</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 lg:gap-6">
+<div>
+</div>
+<div class="flex items-center gap-2 relative">
+<a href="carrito.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="carrito-contador absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+</a>
+<a href="cuenta.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors">
+</a>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 px-6 lg:px-20 py-12">
+<div class="max-w-[1440px] mx-auto">
+<h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-10">Tu Carrito</h1>
+<div class="flex flex-col lg:flex-row gap-12">
+<div class="flex-1 space-y-8 contenedor-carrito">
+<!-- Los productos se cargarán dinámicamente aquí -->
+<div class="text-center py-16">
+    <span class="material-symbols-outlined text-6xl text-primary/30 mb-4">shopping_bag</span>
+    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Cargando carrito...</h3>
+</div>
+</div>
+<aside class="lg:w-[400px] resumen-carrito">
+<!-- El resumen se cargará dinámicamente aquí -->
+</aside>
+</div>
+</div>
+</main>
+<footer class="bg-primary/10 dark:bg-background-dark px-6 lg:px-20 py-20 border-t border-primary/10">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="space-y-6">
+<a href="index.html" class="flex items-center">
+  <img src="images/Logo Transparente.png" alt="K&amp;L Maquillaje y Cuidado de la Piel" 
+       class="h-20 w-auto">
+</a>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    Redefiniendo la belleza a través de la lente del lujo y la ciencia limpia. Tu ritual diario para una confianza luminosa.
+                </p>
+<div class="flex gap-4">
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">play_circle</span></a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">INICIO</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="novedades.html">Novedades</a></li>
+<li><a class="hover:text-primary transition-colors" href="best-sellers.html">Best Sellers</a></li>
+<li><a class="hover:text-primary transition-colors" href="kits-skincare.html">Kits de Skincare</a></li>
+<li><a class="hover:text-primary transition-colors" href="regalos-minis.html">Regalos &amp; Minis</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">Soporte</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="politicas-envio.html">Políticas de Envío</a></li>
+<li><a class="hover:text-primary transition-colors" href="cambios-devoluciones.html">Cambios y Devoluciones</a></li>
+<li><a class="hover:text-primary transition-colors" href="contacto.html">Contáctanos</a></li>
+<li><a class="hover:text-primary transition-colors" href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">Newsletter</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Suscríbete para acceso anticipado y ofertas exclusivas.</p>
+<div class="flex gap-2">
+<input class="bg-primary/5 border-primary/10 rounded-lg text-sm w-full focus:ring-primary focus:border-primary" placeholder="Tu correo electrónico" type="email"/>
+<a href="suscripcion.html" class="bg-primary text-white p-2 rounded-lg"><span class="material-symbols-outlined">chevron_right</span></a>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+<p>© 2024 K&amp;L Beauty. Todos los derechos reservados.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary" href="politica-privacidad.html">Política de Privacidad</a>
+<a class="hover:text-primary" href="terminos-servicio.html">Términos de Servicio</a>
+</div>
+</div>
+</footer>
+</div>
+
+<!-- Scripts del carrito -->
+<script src="js/carrito.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof carrito !== 'undefined') {
+            // Forzar la actualización del carrito al cargar la página
+            setTimeout(() => {
+                carrito.actualizarPaginaCarrito();
+            }, 100);
+        }
+    });
+</script>
+</body>
+</html>

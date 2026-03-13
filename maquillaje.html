@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maquillaje | K&amp;L Makeup &amp; Skincare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#dd787b",
+                        "background-light": "#ffefeb",
+                        "background-dark": "#e2bcc5",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        .producto-card {
+            transition: all 0.3s ease;
+        }
+        .pagination-active {
+            background-color: #dd787b;
+            color: white;
+            border-color: #dd787b;
+        }
+        .filter-section {
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 lg:px-20 py-4">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-12">
+<a href="index.html" class="flex items-center">
+  <img src="images/Logo Transparente.png" alt="K&amp;L Maquillaje y Cuidado de la Piel" 
+       class="h-20 w-auto">
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="index.html">INICIO</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="cuidado-piel.html">SKINCARE</a>
+<a class="hover:text-primary transition-colors text-xs font-bold tracking-widest border-b-2 border-primary" href="maquillaje.html">MAQUILLAJE</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="pines.html">PINES</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 lg:gap-6">
+<div class="flex items-center gap-2 relative">
+<a href="carrito.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="carrito-contador absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+</a>
+<a href="cuenta.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors">
+</a>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="bg-primary/10 dark:bg-slate-900/40 py-8 lg:py-12 px-6 lg:px-20">
+<div class="max-w-[1440px] mx-auto text-center">
+<nav class="flex justify-center mb-4 text-[10px] uppercase tracking-widest text-slate-400 font-bold">
+<a class="hover:text-primary" href="index.html">Inicio</a>
+<span class="mx-2">/</span>
+<span class="text-primary">Maquillaje</span>
+</nav>
+<h1 class="text-4xl lg:text-6xl font-black text-slate-900 dark:text-white leading-tight mb-4">
+                    Colección de <span class="text-primary">Maquillaje</span>
+</h1>
+<p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-sm lg:text-base leading-relaxed">
+                    Descubre nuestra exclusiva gama de productos diseñados para resaltar tu belleza natural con acabados profesionales y fórmulas de larga duración.
+                </p>
+</div>
+</section>
+<section class="px-6 lg:px-20 py-12">
+<div class="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-12">
+<!-- Filtros -->
+<aside class="w-full lg:w-64 space-y-10">
+<div class="sticky top-28">
+<div class="filter-section">
+<h4 class="font-extrabold uppercase tracking-widest text-xs mb-6 text-slate-900 dark:text-white border-l-4 border-primary pl-3">Tipo de Producto</h4>
+<div class="space-y-3">
+<label class="flex items-center gap-3 group cursor-pointer">
+<input type="checkbox" class="filtro-checkbox rounded border-primary/20 text-primary focus:ring-primary w-4 h-4 cursor-pointer" data-filtro="tipo" data-valor="labiales">
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Labiales</span>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<input type="checkbox" class="filtro-checkbox rounded border-primary/20 text-primary focus:ring-primary w-4 h-4 cursor-pointer" data-filtro="tipo" data-valor="bases">
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Bases</span>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<input type="checkbox" class="filtro-checkbox rounded border-primary/20 text-primary focus:ring-primary w-4 h-4 cursor-pointer" data-filtro="tipo" data-valor="ojos">
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Ojos (Paletas)</span>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<input type="checkbox" class="filtro-checkbox rounded border-primary/20 text-primary focus:ring-primary w-4 h-4 cursor-pointer" data-filtro="tipo" data-valor="rubores">
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Rubores</span>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<input type="checkbox" class="filtro-checkbox rounded border-primary/20 text-primary focus:ring-primary w-4 h-4 cursor-pointer" data-filtro="tipo" data-valor="polvos">
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Polvos</span>
+</label>
+</div>
+</div>
+
+<div class="filter-section mt-8">
+<h4 class="font-extrabold uppercase tracking-widest text-xs mb-6 text-slate-900 dark:text-white border-l-4 border-primary pl-3">Acabado</h4>
+<div class="space-y-3">
+<label class="flex items-center gap-3 group cursor-pointer">
+<input type="checkbox" class="filtro-checkbox rounded border-primary/20 text-primary focus:ring-primary w-4 h-4 cursor-pointer" data-filtro="acabado" data-valor="mate">
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Mate</span>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<input type="checkbox" class="filtro-checkbox rounded border-primary/20 text-primary focus:ring-primary w-4 h-4 cursor-pointer" data-filtro="acabado" data-valor="brillante">
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Brillante</span>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<input type="checkbox" class="filtro-checkbox rounded border-primary/20 text-primary focus:ring-primary w-4 h-4 cursor-pointer" data-filtro="acabado" data-valor="satinado">
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Satinado</span>
+</label>
+</div>
+</div>
+
+<div class="filter-section mt-8">
+<h4 class="font-extrabold uppercase tracking-widest text-xs mb-6 text-slate-900 dark:text-white border-l-4 border-primary pl-3">Precio</h4>
+<input type="range" id="filtro-precio" class="w-full accent-primary mt-2" min="0" max="100000" step="1000" value="100000">
+<div class="flex justify-between text-xs font-bold text-slate-400 mt-2">
+<span id="precio-min">$0</span>
+<span id="precio-max">$100.000</span>
+</div>
+</div>
+
+<button id="btn-limpiar-filtros" class="inline-block w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-4 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all text-center mt-8">
+    Limpiar Filtros
+</button>
+</div>
+</aside>
+
+<!-- Productos y Paginación -->
+<div class="flex-1">
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-primary/10">
+<p class="text-sm text-slate-500 font-medium italic">
+    Mostrando <span id="productos-inicio">1</span>-<span id="productos-fin">6</span> de <span id="total-productos">0</span> productos
+</p>
+<select id="ordenar-por" class="bg-transparent border-none text-sm font-bold text-slate-900 dark:text-white focus:ring-0 cursor-pointer">
+<option value="destacados">Ordenar por: Destacados</option>
+<option value="menor-precio">Precio: Menor a Mayor</option>
+<option value="mayor-precio">Precio: Mayor a Menor</option>
+<option value="nombre">Nombre: A a Z</option>
+</select>
+</div>
+
+<!-- Grid de Productos -->
+<div id="productos-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
+    <!-- Los productos se cargarán dinámicamente -->
+</div>
+
+<!-- Paginación -->
+<div id="paginacion" class="mt-12 flex justify-center items-center gap-2">
+    <!-- Se generará dinámicamente -->
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-primary/10 dark:bg-background-dark px-6 lg:px-20 py-20 border-t border-primary/10">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="space-y-6">
+<a href="index.html" class="flex items-center">
+  <img src="images/Logo Transparente.png" alt="K&amp;L Maquillaje y Cuidado de la Piel" 
+       class="h-20 w-auto">
+</a>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    Redefiniendo la belleza a través del lujo y la ciencia limpia. Tu ritual diario para una confianza luminosa.
+                </p>
+<div class="flex gap-4">
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">play_circle</span></a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">Tienda</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="novedades.html">Novedades</a></li>
+<li><a class="hover:text-primary transition-colors" href="mas-vendidos.html">Más Vendidos</a></li>
+<li><a class="hover:text-primary transition-colors" href="kits-cuidado.html">Kits de Cuidado</a></li>
+<li><a class="hover:text-primary transition-colors" href="regalos-minis.html">Regalos y Minis</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">Soporte</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="politica-envio.html">Política de Envío</a></li>
+<li><a class="hover:text-primary transition-colors" href="devoluciones.html">Devoluciones</a></li>
+<li><a class="hover:text-primary transition-colors" href="contacto.html">Contacto</a></li>
+<li><a class="hover:text-primary transition-colors" href="faq.html">Preguntas Frecuentes</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">Newsletter</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Suscríbete para acceso anticipado y ofertas exclusivas.</p>
+<div class="flex gap-2">
+<input class="bg-primary/5 border-primary/10 rounded-lg text-sm w-full focus:ring-primary focus:border-primary" placeholder="Tu email" type="email"/>
+<a href="suscripcion.html" class="bg-primary text-white p-2 rounded-lg"><span class="material-symbols-outlined">chevron_right</span></a>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+<p>© 2024 K&amp;L Beauty. Todos los derechos reservados.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary" href="politica-privacidad.html">Política de Privacidad</a>
+<a class="hover:text-primary" href="terminos-servicio.html">Términos de Servicio</a>
+</div>
+</div>
+</footer>
+</div>
+
+<!-- Scripts -->
+<script src="js/carrito.js"></script>
+<script src="js/maquillaje-filtros.js"></script>
+</body>
+</html>

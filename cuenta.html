@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contacto por Instagram | K&amp;L Makeup &amp; Skincare</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .animate-pulse-slow {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+    <div class="min-h-screen flex items-center justify-center px-6 py-12">
+        <div class="max-w-md w-full">
+            <div class="text-center mb-8">
+                <a href="index.html" class="inline-block">
+                    <img src="images/Logo Transparente.png" alt="K&amp;L" class="h-24 w-auto mx-auto">
+                </a>
+                <h2 class="text-3xl font-bold mt-6">¡Compra por Instagram!</h2>
+                <p class="text-slate-500 mt-2">Te redirigiremos a Instagram para confirmar tu pedido</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-900/50 p-8 rounded-2xl border border-primary/10 text-center">
+                <div class="mb-6">
+                    <span class="material-symbols-outlined text-7xl text-primary animate-pulse-slow">
+                        send
+                    </span>
+                </div>
+                
+                <h3 class="text-xl font-bold mb-4">¿Cómo funciona?</h3>
+                
+                <div class="space-y-4 text-left mb-8">
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            <span class="font-bold">1.</span> Serás redirigido a Instagram
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            <span class="font-bold">2.</span> El mensaje vendrá pre-llenado con tu pedido
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            <span class="font-bold">3.</span> Confirma los detalles y el método de pago
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            <span class="font-bold">4.</span> ¡Recibe tu pedido en la puerta de tu casa!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-primary/5 p-6 rounded-xl mb-8">
+                    <p class="text-sm font-bold text-primary mb-2">Métodos de pago aceptados:</p>
+                    <div class="flex flex-wrap justify-center gap-3 text-xs">
+                        <span class="bg-white dark:bg-slate-800 px-3 py-1 rounded-full border border-primary/20">Nequi</span>
+                        <span class="bg-white dark:bg-slate-800 px-3 py-1 rounded-full border border-primary/20">Daviplata</span>
+                        <span class="bg-white dark:bg-slate-800 px-3 py-1 rounded-full border border-primary/20">Bancolombia</span>
+                        <span class="bg-white dark:bg-slate-800 px-3 py-1 rounded-full border border-primary/20">Efecty</span>
+                    </div>
+                </div>
+
+                <a href="https://instagram.com/kl_beauty_co" 
+                   target="_blank"
+                   class="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 px-6 rounded-xl font-bold transition-all hover:scale-105 shadow-lg mb-4">
+                    <img src="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" alt="Instagram" class="w-5 h-5">
+                    Continuar a Instagram
+                </a>
+
+                <a href="carrito.html" class="inline-block text-sm text-primary hover:underline">
+                    ← Volver al carrito
+                </a>
+
+                <p class="text-center text-xs text-slate-500 mt-8">
+                    Al continuar, aceptas nuestros 
+                    <a href="terminos-servicio.html" class="text-primary hover:underline">Términos de Servicio</a> 
+                    y 
+                    <a href="politica-privacidad.html" class="text-primary hover:underline">Política de Privacidad</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Verificar si hay un pedido pendiente del carrito
+        document.addEventListener('DOMContentLoaded', function() {
+            const carritoPendiente = sessionStorage.getItem('carritoPendiente');
+            const instagramLink = document.querySelector('a[href*="instagram.com"]');
+            
+            if (carritoPendiente && instagramLink) {
+                try {
+                    const carrito = JSON.parse(carritoPendiente);
+                    
+                    // Función para formatear precio
+                    const formatearPrecio = (precio) => {
+                        return new Intl.NumberFormat('es-CO', {
+                            style: 'currency',
+                            currency: 'COP',
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0
+                        }).format(precio);
+                    };
+
+                    // Calcular total
+                    const calcularSubtotal = (items) => {
+                        return items.reduce((total, item) => {
+                            let precio = item.precio;
+                            if (typeof precio === 'string') {
+                                precio = parseInt(precio.replace(/[^0-9]/g, '')) || 0;
+                            }
+                            return total + (precio * (item.cantidad || 1));
+                        }, 0);
+                    };
+
+                    // Generar mensaje con el resumen del pedido
+                    const total = formatearPrecio(calcularSubtotal(carrito));
+                    const productos = carrito.map(item => {
+                        let precio = item.precio;
+                        if (typeof precio === 'string') {
+                            precio = parseInt(precio.replace(/[^0-9]/g, '')) || 0;
+                        }
+                        return `• ${item.nombre} - ${item.cantidad || 1} x ${formatearPrecio(precio)}`;
+                    }).join('%0A');
+                    
+                    const mensaje = `¡Hola! Quiero confirmar mi pedido:%0A%0A${productos}%0A%0ATotal: ${total}%0A%0A¿Cómo puedo realizar el pago?`;
+                    
+                    // Actualizar el enlace de Instagram con el mensaje
+                    instagramLink.href = `https://www.instagram.com/15klbeauty?igsh=Znk4c2xxb213dWVzmessage=${mensaje}`;
+                    
+                } catch (error) {
+                    console.error('Error al procesar el carrito:', error);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

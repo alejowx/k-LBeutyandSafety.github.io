@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cuidado de la Piel | K&amp;L Makeup &amp; Skincare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#dd787b",
+                        "background-light": "#ffefeb",
+                        "background-dark": "#e2bcc5",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+        .filter-checkbox:checked + label {
+            color: #dd787b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 lg:px-20 py-4">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-12">
+<a href="index.html" class="flex items-center">
+  <img src="images/Logo Transparente.png" alt="K&amp;L Maquillaje y Cuidado de la Piel" 
+       class="h-20 w-auto">
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="index.html">INICIO</a>
+<a class="hover:text-primary transition-colors text-xs font-bold tracking-widest border-b-2 border-primary" href="cuidado-piel.html">SKINCARE</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="maquillaje.html">MAQUILLAJE</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="pines.html">PINES</a>
+<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 lg:gap-6">
+<div>
+</div>
+<div class="flex items-center gap-2 relative">
+<a href="carrito.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="carrito-contador absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+</a>
+<a href="cuenta.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors">
+</a>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="bg-primary/10 dark:bg-slate-900/40 py-16 px-6 lg:px-20">
+<div class="max-w-[1440px] mx-auto text-center">
+<h1 class="text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Cuidado de la Piel</h1>
+<p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-lg">
+                        Descubre rituales de belleza diseñados para nutrir, proteger y revelar la luminosidad natural de tu rostro.
+                    </p>
+</div>
+</section>
+<section class="px-6 lg:px-20 py-12">
+<div class="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-12">
+<aside class="w-full lg:w-64 flex-shrink-0">
+<div class="sticky top-28 space-y-10">
+<div>
+<div class="space-y-3">
+<div class="flex items-center">
+</div>
+<div class="flex items-center">
+</div>
+<div class="flex items-center">
+</div>
+<div class="flex items-center">
+</div>
+</div>
+</div>
+<div>
+<div class="space-y-3">
+<div class="flex items-center">
+</div>
+<div class="flex items-center">
+</div>
+<div class="flex items-center">
+</div>
+<div class="flex items-center">
+</div>
+</div>
+</div>
+<div>
+<div class="space-y-3">
+<div class="flex items-center">
+</div>
+<div class="flex items-center">
+</div>
+<div class="flex items-center">
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-10">
+<p class="text-sm text-slate-500 italic">Mostrando 2 de 2 productos</p>
+<div class="flex items-center gap-2">
+<label class="text-sm text-slate-600">Ordenar por:</label>
+<select class="bg-transparent border-none text-sm font-bold text-primary focus:ring-0 cursor-pointer">
+<option>Recomendados</option>
+<option>Precio: Menor a Mayor</option>
+<option>Precio: Mayor a Menor</option>
+<option>Más recientes</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8">
+    <!-- Producto 1: Agua de Rosas y Primer Trendy. C -->
+    <div class="group cursor-pointer producto-item"
+         data-id="Agua-de-Rosas-y Primer Trendy."
+         data-nombre="Agua de Rosas y Primer Trendy. C"
+         data-precio="25000"
+         data-imagen="images/productos/Agua de Rosas y Primer Trendy..jpeg"
+         data-categoria="Serums"
+         data-descripcion="Agua de Rosas y Primer Trendy.">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white mb-5 shadow-sm border border-primary/5">
+            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110" style='background-image: url("images/productos/Agua de Rosas y Primer Trendy..jpeg");'></div>
+            <div class="absolute bottom-4 left-4 right-4 translate-y-16 group-hover:translate-y-0 transition-transform duration-300">
+                <button class="btn-agregar-carrito w-full bg-slate-900/90 backdrop-blur-sm text-white py-3 rounded-lg font-bold text-sm text-center"
+                        data-id="Agua-de-Rosas-y Primer Trendy."
+                        data-nombre="Agua de Rosas y Primer Trendy. C"
+                        data-precio="25000"
+                        data-imagen="images/productos/Agua de Rosas y Primer Trendy..jpeg"
+                        data-categoria="Serums"
+                        data-descripcion="Agua de Rosas y Primer Trendy.">
+                    Añadir al Carrito
+                </button>
+            </div>
+        </div>
+        <span class="text-[10px] font-black uppercase tracking-widest text-primary/60 mb-1 block">Skincare</span>
+        <h3 class="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Agua de Rosas y Primer Trendy. C</h3>
+        <p class="text-slate-500 font-medium">$25.000</p>
+    </div>
+
+    <!-- Producto 2: Fijador Dream Trendy -->
+    <div class="group cursor-pointer producto-item"
+         data-id="fijador-dream-trendy"
+         data-nombre="Fijador Dream Trendy"
+         data-precio="20000"
+         data-imagen="images/productos/Fijador Dream Trendy.JPG"
+         data-categoria="Brumas"
+         data-descripcion="Fijador Dream Trendy">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white mb-5 shadow-sm border border-primary/5">
+            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110" style='background-image: url("images/productos/Fijador Dream Trendy.JPG");'></div>
+            <div class="absolute bottom-4 left-4 right-4 translate-y-16 group-hover:translate-y-0 transition-transform duration-300">
+                <button class="btn-agregar-carrito w-full bg-slate-900/90 backdrop-blur-sm text-white py-3 rounded-lg font-bold text-sm text-center"
+                        data-id="fijador-dream-trendy"
+                        data-nombre="Fijador Dream Trendy"
+                        data-precio="20000"
+                        data-imagen="images/productos/Fijador Dream Trendy.JPG"
+                        data-categoria="Brumas"
+                        data-descripcion="Fijador Dream Trendy">
+                    Añadir al Carrito
+                </button>
+            </div>
+        </div>
+        <span class="text-[10px] font-black uppercase tracking-widest text-primary/60 mb-1 block">Skincare</span>
+        <h3 class="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Fijador Dream Trendy</h3>
+        <p class="text-slate-500 font-medium">$20.000</p>
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+</div>
+<div class="mt-20 flex justify-center gap-2">
+
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-primary/10 dark:bg-background-dark px-6 lg:px-20 py-20 border-t border-primary/10">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="space-y-6">
+<a href="index.html" class="flex items-center">
+  <img src="images/Logo Transparente.png" alt="K&amp;L Maquillaje y Cuidado de la Piel" 
+       class="h-20 w-auto">
+</a>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Redefiniendo la belleza a través del lujo y la ciencia limpia. Tu ritual diario para una confianza luminosa.
+                    </p>
+<div class="flex gap-4">
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-primary hover:opacity-80" href="#"><span class="material-symbols-outlined">play_circle</span></a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">Tienda</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="novedades.html">Novedades</a></li>
+<li><a class="hover:text-primary transition-colors" href="mas-vendidos.html">Más Vendidos</a></li>
+<li><a class="hover:text-primary transition-colors" href="kits-cuidado-facial.html">Kits de Cuidado Facial</a></li>
+<li><a class="hover:text-primary transition-colors" href="regalos-minis.html">Regalos y Minis</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">Soporte</h4>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="politica-envio.html">Política de Envío</a></li>
+<li><a class="hover:text-primary transition-colors" href="devoluciones-reembolsos.html">Devoluciones y Reembolsos</a></li>
+<li><a class="hover:text-primary transition-colors" href="contacto.html">Contáctanos</a></li>
+<li><a class="hover:text-primary transition-colors" href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold uppercase tracking-widest text-sm text-slate-900 dark:text-white">Newsletter</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Suscríbete para recibir ofertas exclusivas y consejos de expertos.</p>
+<div class="flex gap-2">
+<input class="bg-primary/5 border-primary/10 rounded-lg text-sm w-full focus:ring-primary focus:border-primary" placeholder="Tu email" type="email"/>
+<a href="suscripcion.html" class="bg-primary text-white p-2 rounded-lg flex items-center justify-center"><span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+<p>© 2026 K&amp;L Beauty. Todos los derechos reservados.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary" href="politica-privacidad.html">Política de Privacidad</a>
+<a class="hover:text-primary" href="terminos-servicio.html">Términos de Servicio</a>
+</div>
+</div>
+</footer>
+</div>
+
+<!-- Scripts del carrito -->
+<script src="js/carrito.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar carrito si no existe
+        if (typeof carrito === 'undefined') {
+            console.error('El carrito no está disponible');
+            return;
+        }
+
+        // Agregar event listeners a todos los botones "Añadir al Carrito"
+        document.querySelectorAll('.btn-agregar-carrito').forEach(boton => {
+            boton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Obtener datos del producto
+                const producto = {
+                    id: this.dataset.id,
+                    nombre: this.dataset.nombre,
+                    precio: this.dataset.precio,
+                    imagen: this.dataset.imagen,
+                    categoria: this.dataset.categoria,
+                    descripcion: this.dataset.descripcion || ''
+                };
+                
+                // Agregar al carrito
+                carrito.agregarProducto(producto);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
