@@ -36,10 +36,76 @@
             color: #dd787b;
             font-weight: 600;
         }
+        
+        /* Estilos para el menú móvil */
+        #menu-movil {
+            max-height: calc(100vh - 88px);
+            overflow-y: auto;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        #menu-movil.hidden {
+            display: none;
+        }
+
+        #menu-movil:not(.hidden) {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 1024px) {
+            .contenedor-carrito .producto-carrito {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contenedor-carrito .producto-carrito .w-32 {
+                width: 120px;
+                height: 150px;
+                margin: 0 auto;
+            }
+            
+            .resumen-carrito {
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contenedor-carrito .flex.justify-between.items-center {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contenedor-carrito .flex.justify-between.items-center > div {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            h1.text-4xl {
+                font-size: 2rem;
+            }
+            
+            .grid {
+                gap: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<!-- HEADER ACTUALIZADO CON MENÚ HAMBURGUESA -->
 <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 sm:px-6 lg:px-20 py-4">
 <div class="max-w-[1440px] mx-auto flex items-center justify-between">
     <!-- Logo -->
@@ -59,6 +125,7 @@
         <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="cuidado-piel.html">SKINCARE</a>
         <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="maquillaje.html">MAQUILLAJE</a>
         <a class="hover:text-primary transition-colors text-xs font-bold tracking-widest border-b-2 border-primary" href="pines.html">PINES</a>
+        <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
     </nav>
 
     <!-- Iconos de usuario y carrito -->
@@ -67,6 +134,9 @@
             <a href="carrito.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors relative">
                 <span class="material-symbols-outlined">shopping_bag</span>
                 <span class="carrito-contador absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+            </a>
+            <a href="cuenta.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors">
+                <span class="material-symbols-outlined">person</span>
             </a>
         </div>
     </div>
@@ -79,12 +149,14 @@
         <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="cuidado-piel.html">SKINCARE</a>
         <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="maquillaje.html">MAQUILLAJE</a>
         <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="pines.html">PINES</a>
+        <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
     </nav>
 </div>
 
 <!-- Overlay -->
 <div id="menu-overlay" class="hidden fixed inset-0 bg-black/20 z-30 lg:hidden"></div>
 </header>
+
 <main class="flex-1">
 <section class="bg-primary/10 dark:bg-slate-900/40 py-8 lg:py-12 px-6 lg:px-20">
 <div class="max-w-[1440px] mx-auto text-center">
@@ -190,7 +262,7 @@
      data-imagen="images/productos/pines toy story.JPG" 
      data-descripcion="Pin metálico en forma de corazón con acabado brillante">
     <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-4 bg-white dark:bg-slate-800 shadow-sm border border-primary/5">
-        <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" style='background-image: url("images/productos/pines toy story.JPG")'; background-size: contain; background-repeat: no-repeat; background-position: center;'></div>
+        <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" style='background-image: url("images/productos/pines toy story.JPG"); background-size: contain; background-repeat: no-repeat; background-position: center;'></div>
         <div class="absolute bottom-4 left-4 right-4 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
             <button class="btn-agregar-carrito w-full bg-slate-900 text-white py-3 rounded-lg font-bold text-xs flex items-center justify-center gap-2 shadow-xl uppercase tracking-widest"
                     data-id="Pines Toy Story" 
@@ -234,7 +306,7 @@
     <div class="px-2">
         <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 mb-1">Pines</p>
         <h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 mb-1 leading-tight">Pin Stitch(unidad)</h3>
-        <p class="text-primary font-extrabold">$12.000 COP</p>
+        <p class="text-primary font-extrabold">$15.000 COP</p>
     </div>
 </div>
 
@@ -263,7 +335,7 @@
     <div class="px-2">
         <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 mb-1">Pines • Metálicos</p>
         <h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 mb-1 leading-tight">Pin Monster(unidad)</h3>
-        <p class="text-primary font-extrabold">$12.000 COP</p>
+        <p class="text-primary font-extrabold">$18.000 COP</p>
     </div>
 </div>
 
@@ -292,10 +364,125 @@
     <div class="px-2">
         <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 mb-1">Pines</p>
         <h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 mb-1 leading-tight">Pin Angry Monster(unidad)</h3>
-        <p class="text-primary font-extrabold">$12.000 COP</p>
+        <p class="text-primary font-extrabold">$15.000 COP</p>
     </div>
 </div>
-</a>
+
+<!-- Producto 5: Pin corazón rojo -->
+<div class="group cursor-pointer producto-item"
+     data-id="pin-corazon-rojo"
+     data-nombre="Pin Corazón Rojo"
+     data-precio="10000"
+     data-imagen="images/productos/pin corazon rojo.JPG"
+     data-categoria="Pines Románticos"
+     data-descripcion="Pin de corazón rojo esmaltado">
+    <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-4 bg-white dark:bg-slate-800 shadow-sm border border-primary/5">
+        <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" style='background-image: url("images/productos/pin corazon rojo.JPG"); background-size: contain; background-repeat: no-repeat; background-position: center;'></div>
+        <div class="absolute bottom-4 left-4 right-4 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+            <button class="btn-agregar-carrito w-full bg-slate-900 text-white py-3 rounded-lg font-bold text-xs flex items-center justify-center gap-2 shadow-xl uppercase tracking-widest"
+                    data-id="pin-corazon-rojo"
+                    data-nombre="Pin Corazón Rojo"
+                    data-precio="10000"
+                    data-imagen="images/productos/pin corazon rojo.JPG"
+                    data-categoria="Pines Románticos"
+                    data-descripcion="Pin de corazón rojo esmaltado">
+                <span class="material-symbols-outlined text-sm">shopping_cart</span> Añadir al Carrito
+            </button>
+        </div>
+    </div>
+    <div class="px-2">
+        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 mb-1">Pines • Románticos</p>
+        <h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 mb-1 leading-tight">Pin Corazón Rojo</h3>
+        <p class="text-primary font-extrabold">$10.000 COP</p>
+    </div>
+</div>
+
+<!-- Producto 6: Pin Hello Kitty -->
+<div class="group cursor-pointer producto-item"
+     data-id="pin-hello-kitty"
+     data-nombre="Pin Hello Kitty"
+     data-precio="14000"
+     data-imagen="images/productos/pin hello kitty.JPG"
+     data-categoria="Pines"
+     data-descripcion="Pin Hello Kitty colección especial">
+    <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-4 bg-white dark:bg-slate-800 shadow-sm border border-primary/5">
+        <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" style='background-image: url("images/productos/pin hello kitty.JPG"); background-size: contain; background-repeat: no-repeat; background-position: center;'></div>
+        <div class="absolute bottom-4 left-4 right-4 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+            <button class="btn-agregar-carrito w-full bg-slate-900 text-white py-3 rounded-lg font-bold text-xs flex items-center justify-center gap-2 shadow-xl uppercase tracking-widest"
+                    data-id="pin-hello-kitty"
+                    data-nombre="Pin Hello Kitty"
+                    data-precio="14000"
+                    data-imagen="images/productos/pin hello kitty.JPG"
+                    data-categoria="Pines"
+                    data-descripcion="Pin Hello Kitty colección especial">
+                <span class="material-symbols-outlined text-sm">shopping_cart</span> Añadir al Carrito
+            </button>
+        </div>
+    </div>
+    <div class="px-2">
+        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 mb-1">Pines</p>
+        <h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 mb-1 leading-tight">Pin Hello Kitty</h3>
+        <p class="text-primary font-extrabold">$14.000 COP</p>
+    </div>
+</div>
+
+<!-- Producto 7: Pin búho -->
+<div class="group cursor-pointer producto-item"
+     data-id="pin-buho"
+     data-nombre="Pin Búho"
+     data-precio="13000"
+     data-imagen="images/productos/pin buho.JPG"
+     data-categoria="Pines"
+     data-descripcion="Pin de búho con detalles coloridos">
+    <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-4 bg-white dark:bg-slate-800 shadow-sm border border-primary/5">
+        <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" style='background-image: url("images/productos/pin buho.JPG"); background-size: contain; background-repeat: no-repeat; background-position: center;'></div>
+        <div class="absolute bottom-4 left-4 right-4 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+            <button class="btn-agregar-carrito w-full bg-slate-900 text-white py-3 rounded-lg font-bold text-xs flex items-center justify-center gap-2 shadow-xl uppercase tracking-widest"
+                    data-id="pin-buho"
+                    data-nombre="Pin Búho"
+                    data-precio="13000"
+                    data-imagen="images/productos/pin buho.JPG"
+                    data-categoria="Pines"
+                    data-descripcion="Pin de búho con detalles coloridos">
+                <span class="material-symbols-outlined text-sm">shopping_cart</span> Añadir al Carrito
+            </button>
+        </div>
+    </div>
+    <div class="px-2">
+        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 mb-1">Pines</p>
+        <h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 mb-1 leading-tight">Pin Búho</h3>
+        <p class="text-primary font-extrabold">$13.000 COP</p>
+    </div>
+</div>
+
+<!-- Producto 8: Pin calavera -->
+<div class="group cursor-pointer producto-item"
+     data-id="pin-calavera"
+     data-nombre="Pin Calavera"
+     data-precio="16000"
+     data-imagen="images/productos/pin calavera.JPG"
+     data-categoria="Pines"
+     data-descripcion="Pin de calavera mexicana colorida">
+    <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-4 bg-white dark:bg-slate-800 shadow-sm border border-primary/5">
+        <div class="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-110" style='background-image: url("images/productos/pin calavera.JPG"); background-size: contain; background-repeat: no-repeat; background-position: center;'></div>
+        <div class="absolute bottom-4 left-4 right-4 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+            <button class="btn-agregar-carrito w-full bg-slate-900 text-white py-3 rounded-lg font-bold text-xs flex items-center justify-center gap-2 shadow-xl uppercase tracking-widest"
+                    data-id="pin-calavera"
+                    data-nombre="Pin Calavera"
+                    data-precio="16000"
+                    data-imagen="images/productos/pin calavera.JPG"
+                    data-categoria="Pines"
+                    data-descripcion="Pin de calavera mexicana colorida">
+                <span class="material-symbols-outlined text-sm">shopping_cart</span> Añadir al Carrito
+            </button>
+        </div>
+    </div>
+    <div class="px-2">
+        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 mb-1">Pines</p>
+        <h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 mb-1 leading-tight">Pin Calavera</h3>
+        <p class="text-primary font-extrabold">$16.000 COP</p>
+    </div>
+</div>
 </div>
 </div>
 </div>
@@ -385,6 +572,62 @@
                 carrito.agregarProducto(producto);
             });
         });
+    });
+</script>
+
+<!-- Script para menú móvil -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuMovil = document.getElementById('menu-movil');
+        const menuOverlay = document.getElementById('menu-overlay');
+        
+        if (menuToggle && menuMovil && menuOverlay) {
+            menuToggle.addEventListener('click', function() {
+                menuMovil.classList.toggle('hidden');
+                menuOverlay.classList.toggle('hidden');
+                
+                const icono = this.querySelector('.material-symbols-outlined');
+                if (icono) {
+                    if (menuMovil.classList.contains('hidden')) {
+                        icono.textContent = 'menu';
+                    } else {
+                        icono.textContent = 'close';
+                    }
+                }
+            });
+            
+            menuMovil.querySelectorAll('a').forEach(enlace => {
+                enlace.addEventListener('click', function() {
+                    menuMovil.classList.add('hidden');
+                    menuOverlay.classList.add('hidden');
+                    const icono = menuToggle.querySelector('.material-symbols-outlined');
+                    if (icono) {
+                        icono.textContent = 'menu';
+                    }
+                });
+            });
+            
+            menuOverlay.addEventListener('click', function() {
+                menuMovil.classList.add('hidden');
+                menuOverlay.classList.add('hidden');
+                const icono = menuToggle.querySelector('.material-symbols-outlined');
+                if (icono) {
+                    icono.textContent = 'menu';
+                }
+            });
+            
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024) {
+                    menuMovil.classList.add('hidden');
+                    menuOverlay.classList.add('hidden');
+                    const icono = menuToggle.querySelector('.material-symbols-outlined');
+                    if (icono) {
+                        icono.textContent = 'menu';
+                    }
+                }
+            });
+        }
     });
 </script>
 
