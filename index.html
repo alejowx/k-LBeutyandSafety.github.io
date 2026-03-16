@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="light" lang="es"><head>
+<html class="light" lang="es">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>K&amp;L Maquillaje y Cuidado de la Piel | Brillo Sin Comparación</title>
@@ -31,36 +32,126 @@
         body {
             font-family: "Plus Jakarta Sans", sans-serif;
         }
+        
+        /* Estilos para el menú móvil */
+        #menu-movil {
+            max-height: calc(100vh - 88px);
+            overflow-y: auto;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        #menu-movil.hidden {
+            display: none;
+        }
+
+        #menu-movil:not(.hidden) {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 1024px) {
+            .contenedor-carrito .producto-carrito {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contenedor-carrito .producto-carrito .w-32 {
+                width: 120px;
+                height: 150px;
+                margin: 0 auto;
+            }
+            
+            .resumen-carrito {
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contenedor-carrito .flex.justify-between.items-center {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contenedor-carrito .flex.justify-between.items-center > div {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            h1.text-4xl {
+                font-size: 2rem;
+            }
+            
+            .grid {
+                gap: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 lg:px-20 py-4">
+
+<!-- HEADER ACTUALIZADO -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 sm:px-6 lg:px-20 py-4">
 <div class="max-w-[1440px] mx-auto flex items-center justify-between">
-<div class="flex items-center gap-12">
-<a href="index.html" class="flex items-center">
-  <img src="images/Logo Transparente.png" alt="K&amp;L Maquillaje y Cuidado de la Piel" 
-       class="h-20 w-auto">
-</a>
-<a class="hover:text-primary transition-colors text-xs font-bold tracking-widest border-b-2 border-primary" href="index.html">INICIO</a>
-<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="cuidado-piel.html">SKINCARE</a>
-<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="maquillaje.html">MAQUILLAJE</a>
-<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="pines.html">PINES</a>
-<a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center">
+        <img src="images/Logo Transparente.png" alt="K&amp;L Maquillaje y Cuidado de la Piel" 
+             class="h-16 sm:h-20 w-auto">
+    </a>
+
+    <!-- Menú Hamburguesa para móvil -->
+    <button id="menu-toggle" class="lg:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors">
+        <span class="material-symbols-outlined text-2xl text-slate-700 dark:text-slate-200">menu</span>
+    </button>
+
+    <!-- Navegación Desktop -->
+    <nav class="hidden lg:flex items-center gap-8">
+        <a class="hover:text-primary transition-colors text-xs font-bold tracking-widest border-b-2 border-primary" href="index.html">INICIO</a>
+        <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="cuidado-piel.html">SKINCARE</a>
+        <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="maquillaje.html">MAQUILLAJE</a>
+        <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="pines.html">PINES</a>
+    </nav>
+
+    <!-- Iconos de usuario y carrito -->
+    <div class="flex items-center gap-2 lg:gap-4">
+        <div class="flex items-center gap-2 relative">
+            <a href="carrito.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors relative">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span class="carrito-contador absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+            </a>
+            <a href="cuenta.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors">
+                <span class="material-symbols-outlined">person</span>
+            </a>
+        </div>
+    </div>
 </div>
-<div class="flex items-center gap-4 lg:gap-6">
-<div> </div> 
-<div class="flex items-center gap-2 relative">
-<a href="carrito.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors relative">
-<span class="material-symbols-outlined">shopping_bag</span>
-<span class="carrito-contador absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
-</a>
-<a href="cuenta.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors">
-</a>
+
+<!-- Menú Móvil -->
+<div id="menu-movil" class="hidden lg:hidden fixed inset-x-0 top-[88px] bg-background-light dark:bg-background-dark border-b border-primary/10 shadow-lg z-40">
+    <nav class="flex flex-col py-4 px-6">
+        <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="index.html">INICIO</a>
+        <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="cuidado-piel.html">SKINCARE</a>
+        <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="maquillaje.html">MAQUILLAJE</a>
+        <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="pines.html">PINES</a>
+        <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
+    </nav>
 </div>
-</div>
-</div>
+
+<!-- Overlay -->
+<div id="menu-overlay" class="hidden fixed inset-0 bg-black/20 z-30 lg:hidden"></div>
 </header>
+
 <main class="flex-1">
 <section class="px-6 lg:px-20 py-12">
 <div class="max-w-[1440px] mx-auto">
@@ -221,6 +312,7 @@
 </div>
 </section>
 </main>
+
 <footer class="bg-primary/10 dark:bg-background-dark px-6 lg:px-20 py-20 border-t border-primary/10">
 <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 <div class="space-y-6">
@@ -270,23 +362,20 @@
 </footer>
 </div>
 
-<!-- Scripts del carrito -->
+<!-- Scripts -->
 <script src="js/carrito.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Inicializar carrito si no existe
         if (typeof carrito === 'undefined') {
             console.error('El carrito no está disponible');
             return;
         }
 
-        // Agregar event listeners a todos los botones "Añadir al Carrito"
         document.querySelectorAll('.btn-agregar-carrito').forEach(boton => {
             boton.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Obtener datos del producto
                 const producto = {
                     id: this.dataset.id,
                     nombre: this.dataset.nombre,
@@ -296,11 +385,67 @@
                     descripcion: this.dataset.descripcion || ''
                 };
                 
-                // Agregar al carrito
                 carrito.agregarProducto(producto);
             });
         });
     });
 </script>
 
-</body></html>
+<!-- Script para menú móvil -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuMovil = document.getElementById('menu-movil');
+        const menuOverlay = document.getElementById('menu-overlay');
+        
+        if (menuToggle && menuMovil && menuOverlay) {
+            menuToggle.addEventListener('click', function() {
+                menuMovil.classList.toggle('hidden');
+                menuOverlay.classList.toggle('hidden');
+                
+                const icono = this.querySelector('.material-symbols-outlined');
+                if (icono) {
+                    if (menuMovil.classList.contains('hidden')) {
+                        icono.textContent = 'menu';
+                    } else {
+                        icono.textContent = 'close';
+                    }
+                }
+            });
+            
+            menuMovil.querySelectorAll('a').forEach(enlace => {
+                enlace.addEventListener('click', function() {
+                    menuMovil.classList.add('hidden');
+                    menuOverlay.classList.add('hidden');
+                    const icono = menuToggle.querySelector('.material-symbols-outlined');
+                    if (icono) {
+                        icono.textContent = 'menu';
+                    }
+                });
+            });
+            
+            menuOverlay.addEventListener('click', function() {
+                menuMovil.classList.add('hidden');
+                menuOverlay.classList.add('hidden');
+                const icono = menuToggle.querySelector('.material-symbols-outlined');
+                if (icono) {
+                    icono.textContent = 'menu';
+                }
+            });
+            
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024) {
+                    menuMovil.classList.add('hidden');
+                    menuOverlay.classList.add('hidden');
+                    const icono = menuToggle.querySelector('.material-symbols-outlined');
+                    if (icono) {
+                        icono.textContent = 'menu';
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
