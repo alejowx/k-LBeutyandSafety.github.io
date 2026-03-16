@@ -39,10 +39,82 @@
         .animate-fade-in {
             animation: fade-in 0.3s ease-out;
         }
+        
+        /* Estilos para el menú móvil */
+        #menu-movil {
+            max-height: calc(100vh - 88px);
+            overflow-y: auto;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        #menu-movil.hidden {
+            display: none;
+        }
+
+        #menu-movil:not(.hidden) {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 1024px) {
+            .contenedor-carrito .producto-carrito {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contenedor-carrito .producto-carrito .w-32 {
+                width: 120px;
+                height: 150px;
+                margin: 0 auto;
+            }
+            
+            .resumen-carrito {
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contenedor-carrito .flex.justify-between.items-center {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contenedor-carrito .flex.justify-between.items-center > div {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            h1.text-4xl {
+                font-size: 2rem;
+            }
+            
+            .grid {
+                gap: 1.5rem;
+            }
+            
+            .flex.justify-between.items-center.mb-8 {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<!-- HEADER CON MENÚ HAMBURGUESA -->
 <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 sm:px-6 lg:px-20 py-4">
 <div class="max-w-[1440px] mx-auto flex items-center justify-between">
     <!-- Logo -->
@@ -62,7 +134,6 @@
         <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="cuidado-piel.html">SKINCARE</a>
         <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="maquillaje.html">MAQUILLAJE</a>
         <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="pines.html">PINES</a>
-        <a class="hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
     </nav>
 
     <!-- Iconos de usuario y carrito -->
@@ -72,8 +143,6 @@
                 <span class="material-symbols-outlined">shopping_bag</span>
                 <span class="carrito-contador absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
             </a>
-            <a href="cuenta.html" class="p-2 rounded-full hover:bg-primary/10 text-slate-700 dark:text-slate-200 transition-colors">
-                <span class="material-symbols-outlined">person</span>
             </a>
         </div>
     </div>
@@ -86,13 +155,13 @@
         <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="cuidado-piel.html">SKINCARE</a>
         <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="maquillaje.html">MAQUILLAJE</a>
         <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide border-b border-primary/10" href="pines.html">PINES</a>
-        <a class="py-3 hover:text-primary transition-colors text-sm font-semibold tracking-wide" href="nosotros.html">NOSOTROS</a>
     </nav>
 </div>
 
 <!-- Overlay -->
 <div id="menu-overlay" class="hidden fixed inset-0 bg-black/20 z-30 lg:hidden"></div>
 </header>
+
 <main class="flex-1 px-6 lg:px-20 py-12">
 <div class="max-w-[1440px] mx-auto">
 <h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-10">Tu Carrito</h1>
@@ -110,6 +179,7 @@
 </div>
 </div>
 </main>
+
 <footer class="bg-primary/10 dark:bg-background-dark px-6 lg:px-20 py-20 border-t border-primary/10">
 <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 <div class="space-y-6">
@@ -175,5 +245,129 @@
         }
     });
 </script>
+
+<!-- Script para menú móvil (CORREGIDO Y MEJORADO) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Función para inicializar el menú
+        function initMenu() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuMovil = document.getElementById('menu-movil');
+            const menuOverlay = document.getElementById('menu-overlay');
+            
+            console.log('Inicializando menú - Carrito página');
+            console.log('menuToggle:', menuToggle);
+            console.log('menuMovil:', menuMovil);
+            console.log('menuOverlay:', menuOverlay);
+            
+            if (menuToggle && menuMovil && menuOverlay) {
+                // Remover eventos anteriores clonando y reemplazando
+                const newMenuToggle = menuToggle.cloneNode(true);
+                menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+                
+                // Volver a obtener referencias
+                const newToggle = document.getElementById('menu-toggle');
+                const newMovil = document.getElementById('menu-movil');
+                const newOverlay = document.getElementById('menu-overlay');
+                
+                // Agregar evento click al botón
+                newToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    newMovil.classList.toggle('hidden');
+                    newOverlay.classList.toggle('hidden');
+                    
+                    const icono = this.querySelector('.material-symbols-outlined');
+                    if (icono) {
+                        if (newMovil.classList.contains('hidden')) {
+                            icono.textContent = 'menu';
+                        } else {
+                            icono.textContent = 'close';
+                        }
+                    }
+                });
+                
+                // Cerrar al hacer clic en enlaces del menú
+                newMovil.querySelectorAll('a').forEach(enlace => {
+                    enlace.addEventListener('click', function() {
+                        newMovil.classList.add('hidden');
+                        newOverlay.classList.add('hidden');
+                        const icono = newToggle.querySelector('.material-symbols-outlined');
+                        if (icono) {
+                            icono.textContent = 'menu';
+                        }
+                    });
+                });
+                
+                // Cerrar al hacer clic en el overlay
+                newOverlay.addEventListener('click', function() {
+                    newMovil.classList.add('hidden');
+                    newOverlay.classList.add('hidden');
+                    const icono = newToggle.querySelector('.material-symbols-outlined');
+                    if (icono) {
+                        icono.textContent = 'menu';
+                    }
+                });
+                
+                // Cerrar al redimensionar a desktop
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 1024) {
+                        newMovil.classList.add('hidden');
+                        newOverlay.classList.add('hidden');
+                        const icono = newToggle.querySelector('.material-symbols-outlined');
+                        if (icono) {
+                            icono.textContent = 'menu';
+                        }
+                    }
+                });
+                
+                console.log('Menú inicializado correctamente en carrito.html');
+            } else {
+                console.error('No se encontraron los elementos del menú en carrito.html');
+                // Intentar de nuevo después de un momento
+                setTimeout(initMenu, 500);
+            }
+        }
+        
+        // Iniciar después de un pequeño delay
+        setTimeout(initMenu, 200);
+    });
+</script>
+
+<!-- Script adicional para asegurar que el menú funcione después de actualizar el carrito -->
+<script>
+    // Este script se ejecuta después de cualquier actualización del carrito
+    (function() {
+        // Guardar referencia al método original
+        const originalRenderizar = carrito?.renderizarCarrito;
+        
+        if (originalRenderizar) {
+            // Sobrescribir el método para reinicializar el menú después de renderizar
+            carrito.renderizarCarrito = function() {
+                // Llamar al método original
+                originalRenderizar.call(this);
+                
+                // Reinicializar el menú después de un pequeño delay
+                setTimeout(() => {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const menuMovil = document.getElementById('menu-movil');
+                    const menuOverlay = document.getElementById('menu-overlay');
+                    
+                    if (menuToggle && menuMovil && menuOverlay) {
+                        // Asegurar que el menú comience cerrado
+                        menuMovil.classList.add('hidden');
+                        menuOverlay.classList.add('hidden');
+                        const icono = menuToggle.querySelector('.material-symbols-outlined');
+                        if (icono) {
+                            icono.textContent = 'menu';
+                        }
+                    }
+                }, 50);
+            };
+        }
+    })();
+</script>
+
 </body>
 </html>
