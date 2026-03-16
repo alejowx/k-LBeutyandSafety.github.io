@@ -17,22 +17,17 @@ class CarritoCompras {
         const username = '15klbeauty'; // Tu usuario de Instagram
         
         if (this.esDispositivoMovil()) {
-            // En móvil, intentar abrir la app primero
             window.location.href = `instagram://user?username=${username}`;
-            
-            // Fallback: si la app no está instalada, abrir web después de 1 segundo
             setTimeout(() => {
                 window.open(`https://www.instagram.com/${username}/`, '_blank');
             }, 1000);
         } else {
-            // En web, abrir directamente en el navegador
             window.open(`https://www.instagram.com/${username}/`, '_blank');
         }
     }
 
     // Mostrar notificación
     mostrarNotificacion(mensaje) {
-        // Eliminar notificaciones existentes
         const notificacionesExistentes = document.querySelectorAll('.notificacion-carrito');
         notificacionesExistentes.forEach(n => n.remove());
 
@@ -76,13 +71,11 @@ class CarritoCompras {
 
     // Agregar producto al carrito
     agregarProducto(producto) {
-        // Validar que el producto tenga los campos necesarios
         if (!producto.id || !producto.nombre || !producto.precio) {
             console.error('Producto inválido:', producto);
             return;
         }
 
-        // Convertir precio a número si es string
         if (typeof producto.precio === 'string') {
             producto.precio = parseInt(producto.precio.replace(/[^0-9]/g, '')) || 0;
         }
@@ -155,6 +148,21 @@ class CarritoCompras {
     actualizarPaginaCarrito() {
         if (window.location.pathname.includes('carrito.html')) {
             this.renderizarCarrito();
+        }
+    }
+
+    // Mejorar la visualización del carrito en móviles
+    mejorarVistaMovil() {
+        if (window.innerWidth <= 640) {
+            const productosCarrito = document.querySelectorAll('.producto-carrito');
+            productosCarrito.forEach(producto => {
+                producto.classList.add('text-center');
+                
+                const cantidadContainer = producto.querySelector('.flex.items-center.border');
+                if (cantidadContainer) {
+                    cantidadContainer.classList.add('mx-auto');
+                }
+            });
         }
     }
 
@@ -264,6 +272,7 @@ class CarritoCompras {
         }
 
         this.inicializarEventosCarrito();
+        this.mejorarVistaMovil();
     }
 
     // Inicializar eventos del carrito
@@ -312,7 +321,6 @@ class CarritoCompras {
             return;
         }
         
-        // Mostrar modal con opciones de pago
         this.mostrarMetodosPago();
     }
 
@@ -323,7 +331,6 @@ class CarritoCompras {
             return;
         }
 
-        // Generar el texto del pedido
         const total = this.formatearPrecioCOP(this.calcularSubtotal());
         
         let productosTexto = '';
@@ -363,7 +370,6 @@ ${metodoSeleccionado ? `📱 Método de pago seleccionado: ${metodoTexto}\n` : '
 
 ¡Quedo atento a la confirmación! 🙌`;
 
-        // Copiar al portapapeles
         navigator.clipboard.writeText(textoPedido).then(() => {
             if (metodoSeleccionado) {
                 this.mostrarNotificacion(`✅ Pedido copiado con método ${metodoTexto}. Abriendo Instagram...`);
@@ -371,15 +377,12 @@ ${metodoSeleccionado ? `📱 Método de pago seleccionado: ${metodoTexto}\n` : '
                 this.mostrarNotificacion('✅ Pedido copiado al portapapeles. Abriendo Instagram...');
             }
             
-            // Abrir Instagram según el dispositivo
             setTimeout(() => {
                 this.abrirInstagram();
             }, 1500);
         }).catch(() => {
-            // Fallback para navegadores que no soportan clipboard API
             this.mostrarNotificacion('❌ No se pudo copiar automáticamente. Selecciona el texto manualmente.');
             
-            // Crear un textarea temporal con el texto
             const textarea = document.createElement('textarea');
             textarea.value = textoPedido;
             textarea.style.position = 'fixed';
